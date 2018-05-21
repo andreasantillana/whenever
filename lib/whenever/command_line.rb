@@ -73,7 +73,6 @@ module Whenever
       command << "-u #{@options[:user]}" if @options[:user]
       # Solaris/SmartOS cron does not support the - option to read from stdin.
       command << "-" unless OS.solaris?
-      Rails.logger.info("======command #{command} ======")
       puts("======command #{command} ======")
 
       IO.popen(command.join(' '), 'r+') do |crontab|
